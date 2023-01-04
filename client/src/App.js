@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-
+import Homepage from './components/Homepage';
 const App = () => {
-	return <div></div>;
+	const [darkBackColor, setDarkBackColor] = useState('#264653');
+	document.body.style.backgroundColor = darkBackColor;
+	return (
+		<div>
+			<Homepage darkBackColor={darkBackColor} />
+		</div>
+	);
 };
 
 export default App;
