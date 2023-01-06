@@ -11,21 +11,21 @@ export const MainModules = [
 	{
 		title: 'Projects',
 		icon: <BsCodeSlash />,
-		link: '/',
+		link: '/portfolio',
 	},
 	{
 		title: 'Resume',
 		icon: <BsCloudDownload />,
-		link: '/',
+		link: '/resume',
 	},
 	{
 		title: 'About Me',
 		icon: <AiOutlineUser />,
-		link: '/',
+		link: '/about',
 	},
 	{
 		title: 'Contact',
 		icon: <RiContactsLine />,
-		link: '/',
+		link: '/contact',
 	},
 ];
