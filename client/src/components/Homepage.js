@@ -1,47 +1,12 @@
-import Navigation from './Navigation';
-import ModTemplate from './ModTemplate';
-import React, { useState } from 'react';
-import { MainModules } from '../data/ModuleData';
+import React, { useState, useEffect } from 'react';
 
 const Homepage = (props) => {
-	const [hoverMod, setHoverMod] = useState('');
-	const [clickMod, setClickMod] = useState('');
 	return (
 		<div
 			style={{
 				height: '100%',
 			}}
 		>
-			<Navigation />
-			<div
-				style={{
-					height: 100,
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
-					marginTop: 50,
-				}}
-			>
-				{MainModules.map((mod, index) => {
-					if (index === MainModules.length) {
-					} else
-						return (
-							<ModTemplate
-								key={index}
-								title={mod.title}
-								icon={mod.icon}
-								index={index}
-								darkBackColor={props.darkBackColor}
-								MainModules={MainModules}
-								isHovering={mod.isHovering}
-								hoverMod={hoverMod}
-								setHoverMod={setHoverMod}
-								clickMod={clickMod}
-								setClickMod={setClickMod}
-							/>
-						);
-				})}
-			</div>
 			<div
 				style={{
 					display: 'flex',
