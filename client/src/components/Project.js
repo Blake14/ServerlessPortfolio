@@ -1,9 +1,23 @@
+import React, { useState, useRef } from 'react';
 import { RiImageAddLine } from 'react-icons/ri';
 import Image from 'react-bootstrap/Image';
-import { SkillsData } from '../data/SkillsData';
 import star from '../assets/Star.png';
+import { BsInfoSquare } from 'react-icons/bs';
+import Overlay from 'react-bootstrap/Overlay';
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const Project = (props) => {
+	const [showInfo, setShowInfo] = useState(false);
+	const [targetInfo, setTargetInfo] = useState(null);
+	const refInfo = useRef(null);
+
+	const handleInfoClick = (event) => {
+		setShowInfo(!showInfo);
+		setTargetInfo(event.target);
+	};
+
 	return (
 		<div
 			style={{
@@ -64,6 +78,7 @@ const Project = (props) => {
 					{props.skills.map((skill, index) => {
 						return (
 							<div
+								key={index}
 								style={{
 									padding: 5,
 									backgroundColor: props.darkBackColor,
@@ -112,6 +127,26 @@ const Project = (props) => {
 					right: 3,
 				}}
 			>
+				<OverlayTrigger
+					overlay={
+						<Tooltip id='tooltip-disabled'>
+							<Image
+								src={star}
+								style={{
+									height: 25,
+									margin: 7,
+									borderRadius: 25,
+								}}
+							></Image>
+							<strong>Enjoyment Rating</strong> is a subjective rating, but this
+							is how much I enjoyed the overall project on a scale of 1-10.{' '}
+						</Tooltip>
+					}
+				>
+					<span className='d-inline-block'>
+						<BsInfoSquare />
+					</span>
+				</OverlayTrigger>
 				<Image
 					src={star}
 					style={{
