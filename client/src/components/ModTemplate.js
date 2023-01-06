@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 const ModTemplate = (props) => {
+	const navigate = useNavigate();
 	const SideText = {
 		fontSize: 48,
 		position: 'relative',
@@ -59,7 +62,10 @@ const ModTemplate = (props) => {
 			<div
 				style={ModStyles.LightMod}
 				key={props.index}
-				onClick={() => props.setClickMod(props.title)}
+				onClick={() => {
+					navigate(props.link);
+					props.setClickMod(props.title);
+				}}
 				onMouseEnter={() => props.setHoverMod(props.title)}
 				onMouseLeave={() => props.setHoverMod('')}
 			>
@@ -74,7 +80,10 @@ const ModTemplate = (props) => {
 			<div
 				style={ModStyles.DarkMod}
 				key={props.index}
-				onClick={() => props.setClickMod(props.title)}
+				onClick={() => {
+					navigate(props.link);
+					props.setClickMod(props.title);
+				}}
 				onMouseEnter={() => props.setHoverMod(props.title)}
 				onMouseLeave={() => props.setHoverMod('')}
 			>
