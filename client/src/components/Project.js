@@ -71,6 +71,7 @@ const Project = (props) => {
 									marginLeft: 4,
 									borderRadius: 10,
 									color: 'white',
+									width: 'fit-content',
 								}}
 							>
 								{skill}
