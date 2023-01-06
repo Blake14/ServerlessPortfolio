@@ -1,5 +1,11 @@
+import EditUserDetails from './EditUserDetails';
+
 const AboutMe = () => {
-	return <div></div>;
+	return (
+		<div>
+			<EditUserDetails />
+		</div>
+	);
 };
 
 export default AboutMe;

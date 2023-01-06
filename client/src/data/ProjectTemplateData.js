@@ -98,7 +98,7 @@ export const ProjectTemplateData = [
 			'Microsoft',
 			'Microsoft Office',
 		],
-		skills: ['MS Excel', 'PowerShell'],
+		skills: ['MSExcel', 'PowerShell'],
 		enjoymentRating: 5,
 		competencyRating: 4,
 		links: [],
