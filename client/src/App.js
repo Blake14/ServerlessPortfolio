@@ -9,6 +9,7 @@ import MenuBar from './components/MenuBar';
 import AboutMe from './components/AboutMe';
 import ContactMe from './components/ContactMe';
 import ResumeCenter from './components/ResumeCenter';
+import Footer from './components/Footer';
 
 const App = () => {
 	const [darkBackColor, setDarkBackColor] = useState('#264653');
@@ -21,36 +22,53 @@ const App = () => {
 			<div
 				style={{
 					position: 'sticky',
-					top: 0,
 					backgroundColor: darkBackColor,
 				}}
 			>
-				<Navigation />
-				<MenuBar
-					darkBackColor={darkBackColor}
-					MainModules={MainModules}
-					ModTemplate={ModTemplate}
-					hoverMod={hoverMod}
-					clickMod={clickMod}
-					setClickMod={setClickMod}
-					setHoverMod={setHoverMod}
-				/>
+				<div
+					style={{
+						position: 'sticky',
+						backgroundColor: darkBackColor,
+						top: 0,
+						zIndex: 1,
+					}}
+				>
+					<Navigation />
+					<MenuBar
+						darkBackColor={darkBackColor}
+						MainModules={MainModules}
+						ModTemplate={ModTemplate}
+						hoverMod={hoverMod}
+						clickMod={clickMod}
+						setClickMod={setClickMod}
+						setHoverMod={setHoverMod}
+					/>
+				</div>
+				<Routes>
+					<Route
+						path='/'
+						element={<Homepage darkBackColor={darkBackColor} />}
+						exact
+					/>
+					<Route
+						path='/portfolio'
+						element={<Projects darkBackColor={darkBackColor} />}
+						exact
+					/>
+					<Route path='/about' element={<AboutMe />} exact />
+					<Route path='/contact' element={<ContactMe />} exact />
+					<Route path='/resume' element={<ResumeCenter />} exact />
+				</Routes>
+				<div
+					style={{
+						position: 'sticky',
+						bottom: 0,
+						backgroundColor: darkBackColor,
+					}}
+				>
+					<Footer />
+				</div>
 			</div>
-			<Routes>
-				<Route
-					path='/'
-					element={<Homepage darkBackColor={darkBackColor} />}
-					exact
-				/>
-				<Route
-					path='/portfolio'
-					element={<Projects darkBackColor={darkBackColor} />}
-					exact
-				/>
-				<Route path='/about' element={<AboutMe />} exact />
-				<Route path='/contact' element={<ContactMe />} exact />
-				<Route path='/resume' element={<ResumeCenter />} exact />
-			</Routes>
 		</BrowserRouter>
 	);
 };

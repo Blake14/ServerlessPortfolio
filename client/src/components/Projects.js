@@ -13,10 +13,8 @@ const Projects = (props) => {
 	return (
 		<div
 			style={{
-				margin: 0,
-				height: 170,
 				paddingTop: 60,
-				borderRadius: 25,
+				paddingBottom: 100,
 			}}
 		>
 			<div
