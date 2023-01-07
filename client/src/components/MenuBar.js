@@ -28,6 +28,7 @@ const MenuBar = (props) => {
 							setHoverMod={props.setHoverMod}
 							clickMod={props.clickMod}
 							setClickMod={props.setClickMod}
+							lightFontColor={props.lightFontColor}
 						/>
 					);
 			})}
