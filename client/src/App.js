@@ -18,34 +18,160 @@ const App = () => {
 	const [hoverMod, setHoverMod] = useState('');
 	const [clickMod, setClickMod] = useState('Home');
 
+	const ColorSchemes = [
+		{
+			bgColor: '#3a0ca3',
+			txtColor: '#fee440',
+		},
+		{
+			bgColor: '#03045e',
+			txtColor: '#caf0f8',
+		},
+		{
+			bgColor: '#264653',
+			txtColor: '#ffffff',
+		},
+		{
+			bgColor: '#3d405b',
+			txtColor: '#f2cc8f',
+		},
+	];
 	document.body.style.backgroundColor = darkBackColor;
 	return (
 		<BrowserRouter>
-			<div
-				style={{
-					position: 'sticky',
-					backgroundColor: darkBackColor,
-				}}
-			>
+			<div>
 				<div
 					style={{
 						position: 'sticky',
 						backgroundColor: darkBackColor,
-						top: 0,
-						zIndex: 1,
 					}}
 				>
-					<Navigation />
-					<MenuBar
-						darkBackColor={darkBackColor}
-						lightFontColor={lightFontColor}
-						MainModules={MainModules}
-						ModTemplate={ModTemplate}
-						hoverMod={hoverMod}
-						clickMod={clickMod}
-						setClickMod={setClickMod}
-						setHoverMod={setHoverMod}
-					/>
+					<div
+						style={{
+							position: 'sticky',
+							backgroundColor: darkBackColor,
+							top: 0,
+							zIndex: 1,
+						}}
+					>
+						<Navigation />
+						<MenuBar
+							darkBackColor={darkBackColor}
+							lightFontColor={lightFontColor}
+							MainModules={MainModules}
+							ModTemplate={ModTemplate}
+							hoverMod={hoverMod}
+							clickMod={clickMod}
+							setClickMod={setClickMod}
+							setHoverMod={setHoverMod}
+						/>
+					</div>
+					<div
+						style={{
+							position: 'absolute',
+							left: -200,
+							top: -400,
+							padding: 50,
+							margin: 50,
+							zIndex: 2,
+							width: 500,
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							position: 'relative',
+						}}
+					>
+						{ColorSchemes.map((cs, index) => {
+							if (
+								cs.bgColor === darkBackColor &&
+								cs.txtColor === lightFontColor
+							) {
+								return (
+									<div
+										key={index}
+										style={{
+											cursor: 'pointer',
+											position: 'absolute',
+										}}
+										onClick={() => {
+											setDarkBackColor(cs.bgColor);
+											setLightFontColor(cs.txtColor);
+										}}
+									>
+										<div
+											style={{
+												width: 80,
+												height: 60,
+												border: '3px solid white',
+												borderRadius: 25,
+												color: lightFontColor,
+												backgroundColor: cs.bgColor,
+												clipPath: 'polygon(100% 100%, 0 100%, 0 0)',
+												position: 'absolute',
+												left: index * 100 + 0,
+												opacity: 0.4,
+											}}
+										></div>
+										<div
+											style={{
+												width: 80,
+												height: 60,
+												border: '3px solid white',
+												borderRadius: 25,
+												color: lightFontColor,
+												backgroundColor: cs.txtColor,
+												clipPath: 'polygon(0 0, 100% 0, 100% 100%)',
+												position: 'absolute',
+												left: index * 100 + 0,
+												opacity: 0.4,
+											}}
+										></div>
+									</div>
+								);
+							} else {
+								return (
+									<div
+										key={index}
+										style={{
+											cursor: 'pointer',
+											position: 'absolute',
+										}}
+										onClick={() => {
+											setDarkBackColor(cs.bgColor);
+											setLightFontColor(cs.txtColor);
+										}}
+									>
+										<div
+											style={{
+												width: 80,
+												height: 60,
+												border: '3px solid white',
+												borderRadius: 25,
+												color: lightFontColor,
+												backgroundColor: cs.bgColor,
+												clipPath: 'polygon(100% 100%, 0 100%, 0 0)',
+												position: 'absolute',
+												left: index * 100 + 0,
+											}}
+										></div>
+										<div
+											style={{
+												width: 80,
+												height: 60,
+												border: '3px solid white',
+												borderRadius: 25,
+												color: lightFontColor,
+												backgroundColor: cs.txtColor,
+												clipPath: 'polygon(0 0, 100% 0, 100% 100%)',
+												position: 'absolute',
+												left: index * 100 + 0,
+											}}
+										></div>
+									</div>
+								);
+							}
+						})}
+					</div>
 				</div>
 				<Routes>
 					<Route
@@ -91,7 +217,7 @@ const App = () => {
 						backgroundColor: darkBackColor,
 					}}
 				>
-					<Footer />
+					<Footer lightFontColor={lightFontColor} />
 				</div>
 			</div>
 		</BrowserRouter>
