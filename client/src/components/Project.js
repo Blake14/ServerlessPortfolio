@@ -1,28 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { RiImageAddLine } from 'react-icons/ri';
 import Image from 'react-bootstrap/Image';
 import star from '../assets/Star.png';
 import { BsInfoSquare } from 'react-icons/bs';
-import Overlay from 'react-bootstrap/Overlay';
-import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 const Project = (props) => {
-	const [showInfo, setShowInfo] = useState(false);
-	const [targetInfo, setTargetInfo] = useState(null);
-	const refInfo = useRef(null);
-
-	const handleInfoClick = (event) => {
-		setShowInfo(!showInfo);
-		setTargetInfo(event.target);
-	};
-
 	return (
 		<div
 			style={{
 				margin: 20,
-				backgroundColor: 'white',
+				backgroundColor: props.lightFontColor,
 				height: 170,
 				borderRadius: 25,
 				width: '44%',
@@ -85,7 +74,7 @@ const Project = (props) => {
 									fontSize: 12,
 									marginLeft: 4,
 									borderRadius: 10,
-									color: 'white',
+									color: props.lightFontColor,
 									width: 'fit-content',
 								}}
 							>

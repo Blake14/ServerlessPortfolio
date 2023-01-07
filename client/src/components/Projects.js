@@ -19,7 +19,7 @@ const Projects = (props) => {
 		>
 			<div
 				style={{
-					color: 'white',
+					color: props.lightFontColor,
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
@@ -52,7 +52,7 @@ const Projects = (props) => {
 									flexWrap: 'wrap',
 									justifyContent: 'center',
 									alignItems: 'center',
-									color: 'white',
+									color: props.lightFontColor,
 									fontSize: 28,
 									cursor: 'pointer',
 									boxShadow: 'black 0px 1px 3px, black 0px 1px 2px',
@@ -73,6 +73,7 @@ const Projects = (props) => {
 								comments={ProjectTemplateData[index].comments}
 								arrayLen={arrayLen}
 								darkBackColor={props.darkBackColor}
+								lightFontColor={props.lightFontColor}
 								skills={ProjectTemplateData[index].skills}
 								enjoymentRating={ProjectTemplateData[index].enjoymentRating}
 								summary={ProjectTemplateData[index].summary}

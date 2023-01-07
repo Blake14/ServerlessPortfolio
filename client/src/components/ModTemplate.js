@@ -16,7 +16,9 @@ const ModTemplate = (props) => {
 			cursor: 'pointer',
 			display: 'flex',
 			backgroundColor:
-				props.title === props.darkBackColor ? props.hoverMod : 'white',
+				props.title === props.darkBackColor
+					? props.hoverMod
+					: props.lightFontColor,
 			transition: 'all .5s ease',
 			WebkitTransition: 'all .5s ease',
 			MozTransition: 'all .5s ease',
@@ -31,12 +33,14 @@ const ModTemplate = (props) => {
 			cursor: 'pointer',
 			display: 'flex',
 			backgroundColor:
-				props.title !== props.hoverMod ? props.darkBackColor : 'white',
+				props.title !== props.hoverMod
+					? props.darkBackColor
+					: props.lightFontColor,
 			transition: 'all .5s ease',
 			WebkitTransition: 'all .5s ease',
 			MozTransition: 'all .5s ease',
 			borderRadius: 25,
-			color: 'white',
+			color: props.lightFontColor,
 			margin: 10,
 			userSelect: 'none',
 		},
@@ -53,7 +57,7 @@ const ModTemplate = (props) => {
 			top: 3,
 			left: 60,
 			fontSize: 48,
-			color: 'white',
+			color: props.lightFontColor,
 			userSelect: 'none',
 		},
 	};
