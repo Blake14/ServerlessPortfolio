@@ -1,6 +1,6 @@
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
-const Footer = () => {
+const Footer = (props) => {
 	const FooterItems = [
 		{
 			title: 'GitHub',
@@ -37,7 +37,7 @@ const Footer = () => {
 							key={index}
 							style={{
 								fontSize: 40,
-								color: 'white',
+								color: props.lightFontColor,
 							}}
 						>
 							{item.icon}
